@@ -12,10 +12,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.3.4'  # Specify your local Flutter version
+      - name: Set up Flutter
+        run: |
+          # Download and extract Flutter SDK
+          curl -fsSL https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_2.8.1-stable.tar.xz | tar xJ
+          export PATH="$PATH:`pwd`/flutter/bin"
 
       - name: Get dependencies
         run: flutter pub get
