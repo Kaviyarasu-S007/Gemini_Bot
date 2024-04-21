@@ -12,10 +12,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Dart SDK
-        uses: dart-lang/setup-dart@v1
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
         with:
-          sdk: '3.3.4' # specify the exact Dart SDK version
+          flutter-version: '3.3.4'  # Specify your local Flutter version
 
       - name: Get dependencies
         run: flutter pub get
